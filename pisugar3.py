@@ -64,7 +64,7 @@ class PiSugar3(plugins.Plugin):
     def on_ui_setup(self, ui):
         try:
             ui.add_element('bat', LabeledValue(color=BLACK, label='BAT', value='0%',
-                                               position=(ui.width() / 2 + 10, 0),
+                                               position=(ui.width() / 2 + 15, 0),
                                                label_font=fonts.Bold, text_font=fonts.Medium))
         except Exception as err:
             logging.warning("[pisugar3] Setup error: %s" % repr(err))
