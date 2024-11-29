@@ -59,7 +59,7 @@ class PiSugar3(plugins.Plugin):
 
     def on_loaded(self):
         self.ups = UPS()
-        logging.info("[pisugar3] plugin loaded.")
+        logging.info("[pisugar3] Plugin loaded.")
 
     def on_ui_setup(self, ui):
         try:
@@ -67,14 +67,14 @@ class PiSugar3(plugins.Plugin):
                                                position=(ui.width() / 2 + 10, 0),
                                                label_font=fonts.Bold, text_font=fonts.Medium))
         except Exception as err:
-            logging.warning("pisugar3 setup err: %s" % repr(err))
+            logging.warning("[pisugar3] Setup error: %s" % repr(err))
 
     def on_unload(self, ui):
         try:
             with ui._lock:
                 ui.remove_element('bat')
         except Exception as err:
-            logging.warning("pisugar3 unload err: %s" % repr(err))
+            logging.warning("[pisugar3] Unload error: %s" % repr(err))
 
     def on_ui_update(self, ui):
         capacity = self.ups.smoothed_capacity()
