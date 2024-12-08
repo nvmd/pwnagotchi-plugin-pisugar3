@@ -62,9 +62,13 @@ class PiSugar3(plugins.Plugin):
         logging.info("[pisugar3] Plugin loaded.")
 
     def on_ui_setup(self, ui):
+        value_ui_pos = (ui.width() / 2 + 10, 0)
+        if ui.is_waveshare_v4():
+            value_ui_pos = (ui.width() / 2 + 15, 0)
+
         try:
             ui.add_element('bat', LabeledValue(color=BLACK, label='BAT', value='0%',
-                                               position=(ui.width() / 2 + 15, 0),
+                                               position=value_ui_pos,
                                                label_font=fonts.Bold, text_font=fonts.Medium))
         except Exception as err:
             logging.warning("[pisugar3] Setup error: %s" % repr(err))
